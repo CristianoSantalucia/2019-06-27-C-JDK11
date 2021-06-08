@@ -99,7 +99,7 @@ public class CrimesController
 			{
 				this.txtResult.appendText("\n\nPERCORSO:" ); 
 				for (Parziale p : this.model.calcolaPercorso(arco))
-					this.txtResult.appendText("\n" + p); 
+					this.txtResult.appendText(""+p); 
 			}
 		}
 		catch (Exception e)
