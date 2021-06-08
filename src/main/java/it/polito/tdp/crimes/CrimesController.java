@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import org.jgrapht.graph.DefaultWeightedEdge;
 
 import it.polito.tdp.crimes.model.Model;
+import it.polito.tdp.crimes.model.Parziale;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,7 +62,7 @@ public class CrimesController
 			{
 				//grafo
 				this.model.creaGrafo(category, data);
-				
+
 				this.btnPercorso.setDisable(false);
 				this.boxArco.setDisable(false);
 
@@ -71,10 +72,11 @@ public class CrimesController
 						+ "\n#Archi: " 
 						+ this.model.getNumArchi());
 
-				
+
 				//percroso
 				this.txtResult.appendText("\nARCHI INFERIORI: " + this.model.stampaInferiori());
-				
+
+				this.boxArco.getItems().clear();
 				this.boxArco.getItems().addAll(this.model.getInferiori()); 
 			}
 		}
@@ -95,7 +97,9 @@ public class CrimesController
 			arco = this.boxArco.getValue();
 			if (arco != null)
 			{
-				this.model.calcolaPercorso(arco); 
+				this.txtResult.appendText("\n\nPERCORSO:" ); 
+				for (Parziale p : this.model.calcolaPercorso(arco))
+					this.txtResult.appendText("\n" + p); 
 			}
 		}
 		catch (Exception e)
