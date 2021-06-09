@@ -93,7 +93,7 @@ public class Model
 	private List<Parziale> percorso;
 	private double pesoMax; 
 
-	public  List<Parziale> calcolaPercorso(DefaultWeightedEdge arco)
+	public List<Parziale> calcolaPercorso(DefaultWeightedEdge arco)
 	{
 		partenza = this.grafo.getEdgeSource(arco);
 		arrivo = this.grafo.getEdgeTarget(arco);
